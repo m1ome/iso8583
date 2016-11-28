@@ -1,0 +1,15 @@
+{
+    "name": "miome/iso8583",
+    "description": "ISO8583 Pack/Unpack library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "w1n2k",
+            "email": "cryfall@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"ISO8583\\": "src/"}
+    },
+    "require": {}
+}
