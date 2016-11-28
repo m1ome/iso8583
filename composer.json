@@ -11,5 +11,8 @@
     "autoload": {
         "psr-4": {"ISO8583\\": "src/"}
     },
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "kahlan/kahlan": "^3.0"
+    }
 }

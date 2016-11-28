@@ -1,4 +1,5 @@
 # PHP ISO8583 Parser
+[![Build Status](https://travis-ci.org/m1ome/iso8583.svg?branch=master)](https://travis-ci.org/m1ome/iso8583)
 
 # Usage
 ```php
