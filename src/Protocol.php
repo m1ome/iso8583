@@ -7,8 +7,15 @@ class Protocol
 
 	public function __construct($schema = null)
 	{
-		$defaultSchema = implode(DIRECTORY_SEPARATOR, [__DIR__, 'Schema.json']);
-		$schemaJSON    = json_decode(file_get_contents($defaultSchema));
+        $schema = $schema === null ? implode(DIRECTORY_SEPARATOR, [__DIR__, 'Schema.json']) : $schema;
+        if (!file_exists($schema)) {
+            throw new \Exception('Unknown schema file: ' . $schema);
+        }
+
+		$schemaJSON    = json_decode(file_get_contents($schema), true);
+        if ($schemaJSON === null) {
+            throw new \Exception('Bad JSON schema file: ' . $schema);
+        }
 
 		foreach($schemaJSON as $field => $data) 
 		{

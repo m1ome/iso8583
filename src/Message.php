@@ -1,6 +1,9 @@
 <?php
 namespace ISO8583;
 
+use ISO8583\Error\UnpackError;
+use ISO8583\Error\PackError;
+
 class Message 
 {
 	protected $protocol;
@@ -8,17 +11,18 @@ class Message
 
 	protected $length;
 	protected $mti;
-	protected $fields = [];
+    protected $bitmap;
+    protected $fields = [];
 	protected $mappers = [
-		'a' => Mapper\AlphaNumeric::class,
-		'n' => Mapper\AlphaNumeric::class,
-		's' => Mapper\AlphaNumeric::class,
-		'an' => Mapper\AlphaNumeric::class,
-		'as' => Mapper\AlphaNumeric::class,
-		'ns' => Mapper\AlphaNumeric::class,
-		'ans' => Mapper\AlphaNumeric::class,
-		'b'	=> Mapper\Binary::class,
-		'z'	=> Mapper\AlphaNumeric::class
+		'a'     => Mapper\AlphaNumeric::class,
+		'n'     => Mapper\AlphaNumeric::class,
+		's'     => Mapper\AlphaNumeric::class,
+		'an'    => Mapper\AlphaNumeric::class,
+		'as'    => Mapper\AlphaNumeric::class,
+		'ns'    => Mapper\AlphaNumeric::class,
+		'ans'   => Mapper\AlphaNumeric::class,
+		'b'	    => Mapper\Binary::class,
+		'z'	    => Mapper\AlphaNumeric::class
 	];
 
 	public function __construct(Protocol $protocol, $options = [])
@@ -72,13 +76,13 @@ class Message
 			}
 
 			$fieldData = $this->protocol->getFieldData($id);
-			$fieldMapper = $fieldData->type;
+			$fieldMapper = $fieldData['type'];
 
 			if (!isset($this->mappers[$fieldMapper])) {
 				throw new \Exception('Unknown field mapper for "' . $fieldMapper . '" type');
 			}
 
-			$mapper = new $this->mappers[$fieldMapper]($fieldData->length);
+			$mapper = new $this->mappers[$fieldMapper]($fieldData['length']);
 			$message .= $mapper->pack($data);		
 		}
 
@@ -135,13 +139,13 @@ class Message
 				}
 
 				$fieldData = $this->protocol->getFieldData($fieldNumber);
-				$fieldMapper = $fieldData->type;
+				$fieldMapper = $fieldData['type'];
 
 				if (!isset($this->mappers[$fieldMapper])) {
 					throw new \Exception('Unknown field mapper for "' . $fieldMapper . '" type');
 				}
 
-				$mapper = new $this->mappers[$fieldMapper]($fieldData->length);
+				$mapper = new $this->mappers[$fieldMapper]($fieldData['length']);
 				$unpacked = $mapper->unpack($message);
 
 				$this->setField($fieldNumber, $unpacked);
@@ -151,12 +155,12 @@ class Message
 
 	public function getMTI()
 	{
-		return $this->type;
+		return $this->mti;
 	}
 
 	public function setMTI($mti)
 	{
-		if (!preg_match('/[0-9]{4}/', $mti)) {
+		if (!preg_match('/^[0-9]{4}$/', $mti)) {
 			throw new Error\UnpackError('Bad MTI field it should be 4 digits string');
 		}
 

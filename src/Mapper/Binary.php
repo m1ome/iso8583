@@ -17,13 +17,13 @@ class Binary extends AbstractMapper
 	public function unpack(&$message)
 	{
         if ($this->variableLength > 0) {
-            $length = (int)hex2bin(substr($message, 0, $this->variableLength / 4));
+            $length = (int)hex2bin(substr($message, 0, $this->variableLength * 2));
         } else {
             $length = $this->length;
         }
 
         $parsed = hex2bin(substr($message, $this->variableLength, $length / 4));
-        $message = substr($message, $length * 2 + $this->variableLength);
+        $message = substr($message, $length / 4 + $this->variableLength);
 
         return $parsed;
 	}

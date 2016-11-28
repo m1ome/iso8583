@@ -1,0 +1,617 @@
+{
+  "1": {
+    "type": "b",
+    "length": "64",
+    "description": "Bit map (b 128 if secondary is present and b 192 if tertiary is present)"
+  },
+  "2": {
+    "type": "n",
+    "length": "..19",
+    "description": "Primary account number (PAN)"
+  },
+  "3": {
+    "type": "n",
+    "length": "6",
+    "description": "Processing code"
+  },
+  "4": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, transaction"
+  },
+  "5": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, settlement"
+  },
+  "6": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, cardholder billing"
+  },
+  "7": {
+    "type": "n",
+    "length": "10",
+    "description": "Transmission date &amp; time"
+  },
+  "8": {
+    "type": "n",
+    "length": "8",
+    "description": "Amount, cardholder billing fee"
+  },
+  "9": {
+    "type": "n",
+    "length": "8",
+    "description": "Conversion rate, settlement"
+  },
+  "10": {
+    "type": "n",
+    "length": "8",
+    "description": "Conversion rate, cardholder billing"
+  },
+  "11": {
+    "type": "n",
+    "length": "6",
+    "description": "System trace audit number (STAN)"
+  },
+  "12": {
+    "type": "n",
+    "length": "6",
+    "description": "Time, local transaction (hhmmss)"
+  },
+  "13": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, local transaction (MMDD)"
+  },
+  "14": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, expiration"
+  },
+  "15": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, settlement"
+  },
+  "16": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, conversion"
+  },
+  "17": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, capture"
+  },
+  "18": {
+    "type": "n",
+    "length": "4",
+    "description": "Merchant type"
+  },
+  "19": {
+    "type": "n",
+    "length": "3",
+    "description": "Acquiring institution country code"
+  },
+  "20": {
+    "type": "n",
+    "length": "3",
+    "description": "PAN extended, country code"
+  },
+  "21": {
+    "type": "n",
+    "length": "3",
+    "description": "Forwarding institution. country code"
+  },
+  "22": {
+    "type": "an",
+    "length": "12",
+    "description": "Point of service entry mode"
+  },
+  "23": {
+    "type": "n",
+    "length": "3",
+    "description": "Application PAN sequence number"
+  },
+  "24": {
+    "type": "n",
+    "length": "3",
+    "description": "Function code (ISO 8583:1993)\/Network International identifier (NII)"
+  },
+  "25": {
+    "type": "n",
+    "length": "2",
+    "description": "Point of service condition code"
+  },
+  "26": {
+    "type": "n",
+    "length": "2",
+    "description": "Point of service capture code"
+  },
+  "27": {
+    "type": "n",
+    "length": "1",
+    "description": "Authorizing identification response length"
+  },
+  "32": {
+    "type": "n",
+    "length": "..11",
+    "description": "Acquiring institution identification code"
+  },
+  "33": {
+    "type": "n",
+    "length": "..11",
+    "description": "Forwarding institution identification code"
+  },
+  "34": {
+    "type": "ns",
+    "length": "..28",
+    "description": "Primary account number, extended"
+  },
+  "35": {
+    "type": "z",
+    "length": "..37",
+    "description": "Track 2 data"
+  },
+  "36": {
+    "type": "n",
+    "length": "...104",
+    "description": "Track 3 data"
+  },
+  "37": {
+    "type": "an",
+    "length": "12",
+    "description": "Retrieval reference number"
+  },
+  "38": {
+    "type": "an",
+    "length": "6",
+    "description": "Authorization identification response"
+  },
+  "39": {
+    "type": "an",
+    "length": "2",
+    "description": "Response code"
+  },
+  "40": {
+    "type": "an",
+    "length": "3",
+    "description": "Service restriction code"
+  },
+  "41": {
+    "type": "ans",
+    "length": "8",
+    "description": "Card acceptor terminal identification"
+  },
+  "42": {
+    "type": "ans",
+    "length": "15",
+    "description": "Card acceptor identification code"
+  },
+  "43": {
+    "type": "ans",
+    "length": "40",
+    "description": "Card acceptor name\/location (1-23 address 24-36 city 37-38 state 39-40 country)"
+  },
+  "44": {
+    "type": "an",
+    "length": "..25",
+    "description": "Additional response data"
+  },
+  "45": {
+    "type": "an",
+    "length": "..76",
+    "description": "Track 1 data"
+  },
+  "46": {
+    "type": "an",
+    "length": "...999",
+    "description": "Additional data - ISO"
+  },
+  "47": {
+    "type": "an",
+    "length": "...999",
+    "description": "Additional data - national"
+  },
+  "48": {
+    "type": "an",
+    "length": "...999",
+    "description": "Additional data - private"
+  },
+  "49": {
+    "type": "a",
+    "length": "3",
+    "description": "Currency code, transaction"
+  },
+  "50": {
+    "type": "a",
+    "length": "3",
+    "description": "Currency code, settlement"
+  },
+  "51": {
+    "type": "a",
+    "length": "3",
+    "description": "Currency code, cardholder billing"
+  },
+  "52": {
+    "type": "b",
+    "length": "64",
+    "description": "Personal identification number data"
+  },
+  "53": {
+    "type": "n",
+    "length": "16",
+    "description": "Security related control information"
+  },
+  "54": {
+    "type": "an",
+    "length": "...120",
+    "description": "Additional amounts"
+  },
+  "55": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved ISO"
+  },
+  "56": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved ISO"
+  },
+  "57": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved national"
+  },
+  "58": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved national"
+  },
+  "59": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved national"
+  },
+  "60": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved national"
+  },
+  "61": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved private"
+  },
+  "62": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved private"
+  },
+  "63": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved private"
+  },
+  "64": {
+    "type": "b",
+    "length": "16",
+    "description": "Message authentication code (MAC)"
+  },
+  "65": {
+    "type": "b",
+    "length": "1",
+    "description": "Bitmap, extended"
+  },
+  "66": {
+    "type": "n",
+    "length": "1",
+    "description": "Settlement code"
+  },
+  "67": {
+    "type": "n",
+    "length": "2",
+    "description": "Extended payment code"
+  },
+  "68": {
+    "type": "n",
+    "length": "3",
+    "description": "Receiving institution country code"
+  },
+  "69": {
+    "type": "n",
+    "length": "3",
+    "description": "Settlement institution country code"
+  },
+  "70": {
+    "type": "n",
+    "length": "3",
+    "description": "Network management information code"
+  },
+  "71": {
+    "type": "n",
+    "length": "4",
+    "description": "Message number"
+  },
+  "72": {
+    "type": "n",
+    "length": "4",
+    "description": "Message number, last"
+  },
+  "73": {
+    "type": "n",
+    "length": "6",
+    "description": "Date, action (YYMMDD)"
+  },
+  "74": {
+    "type": "n",
+    "length": "10",
+    "description": "Credits, number"
+  },
+  "75": {
+    "type": "n",
+    "length": "10",
+    "description": "Credits, reversal number"
+  },
+  "76": {
+    "type": "n",
+    "length": "10",
+    "description": "Debits, number"
+  },
+  "77": {
+    "type": "n",
+    "length": "10",
+    "description": "Debits, reversal number"
+  },
+  "78": {
+    "type": "n",
+    "length": "10",
+    "description": "Transfer number"
+  },
+  "79": {
+    "type": "n",
+    "length": "10",
+    "description": "Transfer, reversal number"
+  },
+  "80": {
+    "type": "n",
+    "length": "10",
+    "description": "Inquiries number"
+  },
+  "81": {
+    "type": "n",
+    "length": "10",
+    "description": "Authorizations, number"
+  },
+  "82": {
+    "type": "n",
+    "length": "12",
+    "description": "Credits, processing fee amount"
+  },
+  "83": {
+    "type": "n",
+    "length": "12",
+    "description": "Credits, transaction fee amount"
+  },
+  "84": {
+    "type": "n",
+    "length": "12",
+    "description": "Debits, processing fee amount"
+  },
+  "85": {
+    "type": "n",
+    "length": "12",
+    "description": "Debits, transaction fee amount"
+  },
+  "86": {
+    "type": "n",
+    "length": "16",
+    "description": "Credits, amount"
+  },
+  "87": {
+    "type": "n",
+    "length": "16",
+    "description": "Credits, reversal amount"
+  },
+  "88": {
+    "type": "n",
+    "length": "16",
+    "description": "Debits, amount"
+  },
+  "89": {
+    "type": "n",
+    "length": "16",
+    "description": "Debits, reversal amount"
+  },
+  "90": {
+    "type": "n",
+    "length": "42",
+    "description": "Original data elements"
+  },
+  "91": {
+    "type": "an",
+    "length": "1",
+    "description": "File update code"
+  },
+  "92": {
+    "type": "an",
+    "length": "2",
+    "description": "File security code"
+  },
+  "93": {
+    "type": "an",
+    "length": "5",
+    "description": "Response indicator"
+  },
+  "94": {
+    "type": "an",
+    "length": "7",
+    "description": "Service indicator"
+  },
+  "95": {
+    "type": "an",
+    "length": "42",
+    "description": "Replacement amounts"
+  },
+  "96": {
+    "type": "b",
+    "length": "64",
+    "description": "Message security code"
+  },
+  "98": {
+    "type": "ans",
+    "length": "25",
+    "description": "Payee"
+  },
+  "99": {
+    "type": "n",
+    "length": "..11",
+    "description": "Settlement institution identification code"
+  },
+  "100": {
+    "type": "n",
+    "length": "..11",
+    "description": "Receiving institution identification code"
+  },
+  "101": {
+    "type": "ans",
+    "length": "..17",
+    "description": "File name"
+  },
+  "102": {
+    "type": "ans",
+    "length": "..28",
+    "description": "Account identification 1"
+  },
+  "103": {
+    "type": "ans",
+    "length": "..28",
+    "description": "Account identification 2"
+  },
+  "104": {
+    "type": "ans",
+    "length": "...100",
+    "description": "Transaction description"
+  },
+  "105": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "106": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "107": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "108": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "109": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "110": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "111": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for ISO use"
+  },
+  "112": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "113": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "114": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "115": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "116": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "117": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "118": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "119": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for national use"
+  },
+  "120": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "121": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "122": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "123": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "124": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "125": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "126": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "127": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Reserved for private use"
+  },
+  "128": {
+    "type": "b",
+    "length": "64",
+    "description": "Message authentication code"
+  }
+}
