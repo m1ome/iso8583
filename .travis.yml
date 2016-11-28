@@ -12,7 +12,7 @@ before_script:
   - composer self-update
   - composer install --dev --prefer-source
 
-script: vendor/bin/kahlan
+script: vendor/bin/kahlan --config=kahlan-config.travis.php
 
 after_success:
   - "if [ $(phpenv version-name) = '5.6' ]; then curl -F 'json_file=@coveralls.json' https://coveralls.io/api/v1/jobs --verbose; fi"
