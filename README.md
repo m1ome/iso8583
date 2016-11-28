@@ -1,5 +1,6 @@
 # PHP ISO8583 Parser
 [![Build Status](https://travis-ci.org/m1ome/iso8583.svg?branch=master)](https://travis-ci.org/m1ome/iso8583)
+[![Coverage Status](https://coveralls.io/repos/github/m1ome/iso8583/badge.svg?branch=master)](https://coveralls.io/github/m1ome/iso8583?branch=master)
 
 # Usage
 ```php
