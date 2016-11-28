@@ -11,7 +11,16 @@
     "autoload": {
         "psr-4": {"ISO8583\\": "src/"}
     },
-    "require": {},
+    "version": "1.0.0",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/m1ome/iso8583"
+        }
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
     "require-dev": {
         "kahlan/kahlan": "^3.0"
     }
