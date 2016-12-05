@@ -14,4 +14,14 @@ abstract class AbstractMapper
 
 	abstract public function pack($message);
 	abstract public function unpack(&$message);
+
+	public function getLength()
+	{
+		return $this->length;
+	}
+
+	public function getVariableLength()
+	{
+		return $this->variableLength;
+	}
 }

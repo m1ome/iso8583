@@ -7,8 +7,8 @@ class Binary extends AbstractMapper
 	{
         $packed = bin2hex($message);
 
-        if ($this->variableLength > 0) {
-            $packed = sprintf('%0' . $this->variableLength . 'd', strlen($packed) * 2) . $packed;
+        if ($this->getVariableLength() > 0) {
+            $packed = sprintf('%0' . $this->getVariableLength() . 'd', strlen($packed) * 2) . $packed;
         }
 
         return $packed;
@@ -16,14 +16,14 @@ class Binary extends AbstractMapper
 
 	public function unpack(&$message)
 	{
-        if ($this->variableLength > 0) {
-            $length = (int)hex2bin(substr($message, 0, $this->variableLength * 2));
+        if ($this->getVariableLength() > 0) {
+            $length = (int)hex2bin(substr($message, 0, $this->getVariableLength() * 2));
         } else {
-            $length = $this->length;
+            $length = $this->getLength();
         }
 
-        $parsed = hex2bin(substr($message, $this->variableLength, $length / 4));
-        $message = substr($message, $length / 4 + $this->variableLength);
+        $parsed = hex2bin(substr($message, 0, $length * 2));
+        $message = substr($message, $length * 2);
 
         return $parsed;
 	}

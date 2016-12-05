@@ -106,7 +106,7 @@
     },
     "22": {
         "type": "an",
-        "length": "12",
+        "length": "4",
         "description": "Point of service entry mode"
     },
     "23": {
@@ -236,7 +236,7 @@
     },
     "52": {
         "type": "b",
-        "length": "64",
+        "length": "8",
         "description": "Personal identification number data"
     },
     "53": {
@@ -275,8 +275,8 @@
         "description": "Reserved national"
     },
     "60": {
-        "type": "ans",
-        "length": "...999",
+        "type": "n",
+        "length": "..10",
         "description": "Reserved national"
     },
     "61": {

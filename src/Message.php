@@ -44,7 +44,12 @@ class Message
 	{
 		// Setting MTI
 		$mti = bin2hex($this->mti);
-
+		
+		// Dropping bad fields
+		$this->fields = array_filter($this->fields, function($idx) {
+			return !in_array($idx, [1, 65]);
+		}, ARRAY_FILTER_USE_KEY);
+		
 		// Populating bitmap
 		$bitmap = "";
 		$bitmapLength = 64 * (floor(max(array_keys($this->fields)) / 64) + 1);
@@ -68,21 +73,29 @@ class Message
 			}
 		}
 
+		// Getting field IDS
+		ksort($this->fields);
+
 		// Packing fields
 		$message = "";
 		foreach($this->fields as $id => $data) {
-			if ($id === 1 || $id === 65) {
-				continue;
-			}
-
 			$fieldData = $this->protocol->getFieldData($id);
 			$fieldMapper = $fieldData['type'];
 
 			if (!isset($this->mappers[$fieldMapper])) {
 				throw new \Exception('Unknown field mapper for "' . $fieldMapper . '" type');
 			}
-
+			
 			$mapper = new $this->mappers[$fieldMapper]($fieldData['length']);
+
+			if (
+				($mapper->getLength() > strlen($data) && $mapper->getVariableLength() === 0 ) ||
+				$mapper->getLength() < strlen($data)
+			) {
+				$error = 'FIELD [' . $id . '] should have length: ' . $mapper->getLength() . ' and your message "' . $data . "' is " . strlen($data);
+				throw new Error\PackError($error);
+			}			
+
 			$message .= $mapper->pack($data);		
 		}
 
@@ -103,7 +116,7 @@ class Message
 			$this->shrink($message, (int)$this->options['lengthPrefix'] * 2);
 
 			if (strlen($message) != $length * 2) {
-				throw new UnpackError('Message length is ' . $message / 2 . ' and should be ' . $length);
+				throw new UnpackError('Message length is ' . strlen($message) / 2 . ' and should be ' . $length);
 			}
 		}
 
@@ -172,14 +185,24 @@ class Message
 		$this->fields = $fields;
 	}
 
+	public function getFieldsIds()
+	{
+		$keys = array_keys($this->fields);
+		sort($keys);
+
+		return $keys;
+	}
+
 	public function getFields()
 	{
-		return array_keys($this->fields);
+		ksort($this->fields);
+
+		return $this->fields;
 	}
 
 	public function setField($field, $value)
 	{
-		$this->fields[$field] = $value;
+		$this->fields[(int)$field] = $value;
 	}
 
 	public function getField($field)
