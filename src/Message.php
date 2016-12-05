@@ -46,9 +46,11 @@ class Message
 		$mti = bin2hex($this->mti);
 		
 		// Dropping bad fields
-		$this->fields = array_filter($this->fields, function($idx) {
-			return !in_array($idx, [1, 65]);
-		}, ARRAY_FILTER_USE_KEY);
+		foreach($this->fields as $key=>$val) {
+			if (in_array($key, [1, 65])) {
+				unset($this->fields[$key]);
+			}
+		}
 		
 		// Populating bitmap
 		$bitmap = "";
