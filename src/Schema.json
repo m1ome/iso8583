@@ -134,6 +134,11 @@
         "length": "1",
         "description": "Authorizing identification response length"
     },
+    "28": {
+        "type": "n",
+        "length": "8",
+        "description": "Amount transaction fee"
+    },
     "32": {
         "type": "n",
         "length": "..11",

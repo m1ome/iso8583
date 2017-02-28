@@ -129,10 +129,9 @@ class Message
 		// Parsing bitmap
 		$bitmap = "";
 		for(;;) {
-			$tmp = base_convert(substr($message, 0, 16), 16, 2);
-			if (strlen($tmp) < 64) {
-				$tmp = str_repeat('0', 64 - strlen($tmp)) . $tmp;
-			}
+			$tmp = implode(null, array_map(function($bit) {
+				return str_pad(base_convert($bit, 16, 2), 8, 0, STR_PAD_LEFT);
+			}, str_split(substr($message, 0, 16), 2)));
 
 			$this->shrink($message, 16);
 			$bitmap .= $tmp;
@@ -210,5 +209,10 @@ class Message
 	public function getField($field)
 	{
 		return isset($this->fields[$field]) ? $this->fields[$field] : null;
+	}
+
+	public function getBitmap()
+	{
+		return $this->bitmap;
 	}
 }
