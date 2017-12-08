@@ -1,0 +1,192 @@
+{
+  "1": {
+    "type": "b",
+    "length": "64",
+    "description": "Bit map (b 128 if secondary is present and b 192 if tertiary is present)"
+  },
+  "2": {
+    "type": "n",
+    "length": "..24",
+    "description": "Primary account number (PAN)"
+  },
+  "3": {
+    "type": "n",
+    "length": "6",
+    "description": "Processing code"
+  },
+  "4": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, transaction"
+  },
+  "5": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, account"
+  },
+  "6": {
+    "type": "n",
+    "length": "12",
+    "description": "Amount, cardholder billing"
+  },
+  "9": {
+    "type": "n",
+    "length": "8",
+    "description": "Conversion Rate, Cardholder Billing"
+  },
+  "10": {
+    "type": "n",
+    "length": "8",
+    "description": "Conversion Rate, Account"
+  },
+  "11": {
+    "type": "n",
+    "length": "6",
+    "description": "Systems Trace Audit Number (STAN)"
+  },
+  "12": {
+    "type": "n",
+    "length": "12",
+    "description": "Time, Local Transaction (YYMMDDhhmmss)"
+  },
+  "14": {
+    "type": "n",
+    "length": "4",
+    "description": "Date, Expiration (YYMM)"
+  },
+  "15": {
+    "type": "n",
+    "length": "6",
+    "description": "Settlement Date (YYMMDD)"
+  },
+  "18": {
+    "type": "n",
+    "length": "4",
+    "description": "Merchant type"
+  },
+  "22": {
+    "type": "ans",
+    "length": "12",
+    "description": "Point of Service Date Code"
+  },
+  "24": {
+    "type": "n",
+    "length": "3",
+    "description": "Function code (ISO 8583:1993)\/Network International identifier (NII)"
+  },
+  "32": {
+    "type": "n",
+    "length": "..11",
+    "description": "Acquiring Institution Identification Code"
+  },
+  "37": {
+    "type": "an",
+    "length": "12",
+    "description": "Retrieval reference number"
+  },
+  "38": {
+    "type": "ans",
+    "length": "6",
+    "description": "Authorization identification response"
+  },
+  "39": {
+    "type": "an",
+    "length": "3",
+    "description": "Response code"
+  },
+  "41": {
+    "type": "ans",
+    "length": "8",
+    "description": "Card acceptor terminal identification"
+  },
+  "42": {
+    "type": "an",
+    "length": "15",
+    "description": "Card acceptor identification code"
+  },
+  "43": {
+    "type": "ans",
+    "length": "40",
+    "description": "Card Acceptor Name and Location (1-38 Merchant number of bank name then separator > and city or location of the terminal device 39-40 ISO code of the country)"
+  },
+  "48": {
+    "type": "ans",
+    "length": "...999",
+    "description": "Additional data"
+  },
+  "49": {
+    "type": "n",
+    "length": "3",
+    "description": "Currency code, transaction"
+  },
+  "50": {
+    "type": "n",
+    "length": "3",
+    "description": "Currency code, account"
+  },
+  "51": {
+    "type": "n",
+    "length": "3",
+    "description": "Currency code, cardholder billing"
+  },
+  "54": {
+    "type": "an",
+    "length": "...999",
+    "description": "Additional Amounts"
+  },
+  "55": {
+    "type": "b",
+    "length": "...255",
+    "description": "EMV data"
+  },
+  "61": {
+    "type": "an",
+    "length": "...999",
+    "description": "Additional Amounts and Counters"
+  },
+  "62": {
+    "type": "ans",
+    "length": "...220",
+    "description": "Mini-statement data"
+  },
+  "63": {
+    "type": "n",
+    "length": "12",
+    "description": "Account Balance"
+  },
+  "64": {
+    "type": "b",
+    "length": "8",
+    "description": "Primary MAC Data"
+  },
+  "91": {
+    "type": "an",
+    "length": "1",
+    "description": "Action Code"
+  },
+  "95": {
+    "type": "an",
+    "length": "...999",
+    "description": "Replacement amounts"
+  },
+  "100": {
+    "type": "ans",
+    "length": "..4",
+    "description": "SVFE Issuer Institution Identifier"
+  },
+  "102": {
+    "type": "ans",
+    "length": "..32",
+    "description": "Account identification"
+  },
+  "103": {
+    "type": "ans",
+    "length": "..32",
+    "description": "Account identification 2"
+  },
+  "128": {
+    "type": "b",
+    "length": "8",
+    "description": "Secondary MAC Data"
+  }
+}
